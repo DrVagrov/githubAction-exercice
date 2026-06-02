@@ -4,6 +4,7 @@ on : [push,workflow_dispatch]
 
 jobs : 
   test :
+    runs-on: ubuntu-latest
     steps : 
       - name: Saluer
         run: echo "Oh Hello there" 

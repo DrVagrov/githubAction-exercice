@@ -1,5 +1,9 @@
 name : exo9
 on: [workflow_dispatch]
+
+permissions:
+  contents: write
+
 jobs:
   checkout_repoVisu: 
       runs-on: ubuntu-latest

@@ -1,0 +1,26 @@
+name : exo9
+on: [workflow_dispatch]
+jobs:
+  checkout: 
+      runs-on: ubuntu-latest
+      steps:
+        - name: use-checkout
+          uses: actions/checkout@v4
+        - name: setup-checkout
+          uses: actions/setup-node@v4 
+          with: { node-version: '20' }
+        - name: check-npm-version
+          run: npm --version
+
+
+  repoVisu: 
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Update diagram
+          uses: githubocto/repo-visualizer@0.7.1
+          with:
+            output_file: "images/diagram.svg"
+            excluded_paths: "dist,node_modules"
+  

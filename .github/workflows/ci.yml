@@ -1,10 +1,25 @@
-name : hello
+name: ci-pr-jobs
 
-on : [push,workflow_dispatch] 
+on:
+  pull_request:
+    branches: [main]
+  push:
 
-jobs : 
-  test :
+jobs:
+  build:
     runs-on: ubuntu-latest
-    steps : 
-      - name: Saluer
-        run: echo "Oh Hello there" 
+    steps:
+      - name: Build simulation
+        run: echo "build OK"
+
+      - name: Fail build on pull request
+        if: github.event_name == 'pull_request'
+        run: exit 1
+
+  test:
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test simulation
+        run: echo "test OK"

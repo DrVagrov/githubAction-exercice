@@ -1,0 +1,9 @@
+name : hello
+
+on : [push,workflow_dispatch] 
+
+jobs : 
+  test :
+    steps : 
+      - name: Saluer
+        run: echo "Oh Hello there" 

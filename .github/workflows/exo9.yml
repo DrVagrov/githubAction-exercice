@@ -1,7 +1,7 @@
 name : exo9
 on: [workflow_dispatch]
 jobs:
-  checkout+repoVisu: 
+  checkout_repoVisu: 
       runs-on: ubuntu-latest
       steps:
         - name: use-checkout

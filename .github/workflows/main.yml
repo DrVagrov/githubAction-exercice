@@ -1,0 +1,10 @@
+name : hello-fittrack
+on: [push]
+jobs:
+  hello-fittrack: 
+      runs-on: ubuntu-latest
+      steps:
+        - name : echo
+          run : echo ${{github.actor}}
+
+  
